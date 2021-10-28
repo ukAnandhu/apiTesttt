@@ -24,13 +24,13 @@ function Email() {
     }
     const clickHandler = (e) => {
         e.preventDefault();  
-        if (email === '' && passwd === '') return
+        if (email === '' && passwd === '') return 
         if (validator.isEmail(email)) {
             setEmailError('');
          }else {
              setEmailError('enter a valid email !');
+             return
          }
-       
         const config = {
             headers: {
             'Accept': 'application/json',
@@ -50,10 +50,7 @@ function Email() {
                  console.log(status, 'kkkkk');
                  if (res.status === 200) {
                     setLogin("login success");
-                }else {
-                    setLogin("enter correct password");
                 }
-                
                  const data = res.data;
                  console.log(data, 'wallboyz')
                }) 
